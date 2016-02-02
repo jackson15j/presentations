@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2010 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Ernest Delgado (ernestd@google.com)
+                 Alex Russell (slightlyoff@chromium.org)
+
+  landslide modifications: Adam Zapletal (adamzap@gmail.com)
+                           Nicolas Perriault (nperriault@gmail.com)
+-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Unittest Hello_world</title>
+    <!-- Styles -->
+    
+    <link rel="stylesheet" media="print" href="theme/css/print.css">
+    <link rel="stylesheet" media="screen, projection" href="theme/css/screen.css">
+    
+    
+    <!-- /Styles -->
+    <!-- Javascripts -->
+    
+    <script type="text/javascript" src="theme/js/slides.js"></script>
+    
+    
+    
+    <!-- /Javascripts -->
+</head>
+<body>
+  <div id="blank"></div>
+  <div class="presentation">
+    <div id="current_presenter_notes">
+      <div id="presenter_note"></div>
+    </div>
+    <div class="slides">
+      
+      <!-- slide source: unittest_helloworld_python.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-1">
+          <div class="inner">
+            
+            <header><h1>Unittest Hello_world</h1></header>
+            
+            
+            <section><p><em>Or: What happens when you read up on old C++ unittest frameworks...</em></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="unittest_helloworld_python.md">unittest_helloworld_python.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              1/22
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: unittest_helloworld_python.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-2">
+          <div class="inner">
+            
+            
+            <section><p>So...</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="unittest_helloworld_python.md">unittest_helloworld_python.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              2/22
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: unittest_helloworld_python.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code slide-3">
+          <div class="inner">
+            
+            <header><h1>hello_world.py</h1></header>
+            
+            
+            <section><p>Let's write hello world:</p>
+<div class="highlight"><pre><span class="lineno">1 </span><span class="ch">#! /usr/bin/env python3</span>
+<span class="lineno">2 </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+              <ul>
+<li>Python 3 example (simplicity).</li>
+<li>Barest form of printing a string to stdout.</li>
+<li>Let's prove it works...</li>
+</ul>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="unittest_helloworld_python.md">unittest_helloworld_python.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              3/22
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: unittest_helloworld_python.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code slide-4">
+          <div class="inner">
+            
+            <header><h1>hello_world.py</h1></header>
+            
+            
+            <section><p>Let's write hello world:</p>
+<div class="highlight"><pre><span class="lineno">1 </span><span class="ch">#! /usr/bin/env python3</span>
+<span class="lineno">2 </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+</pre></div>
+
+<p>Bash output:</p>
+<div class="highlight"><pre><span class="lineno">1 </span>$&gt; ./hello_world.py
+<span class="lineno">2 </span>hello world
+<span class="lineno">3 </span>$&gt;
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+              <ul>
+<li>Nice and simple.</li>
+<li>It just works.</li>
+<li>Now lets unittest it...</li>
+<li>how to test? Lets pipe it to a file and read it in...</li>
+</ul>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="unittest_helloworld_python.md">unittest_helloworld_python.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              4/22
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: unittest_helloworld_python.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code slide-5">
+          <div class="inner">
+            
+            <header><h1>How to Test?</h1></header>
+            
+            
+            <section><p>Let's just pipe it into a file:</p>
+<div class="highlight"><pre><span class="lineno">1 </span>$&gt; ./hello_world.py <span class="p">|</span> python3 test_hello_world.py
+<span class="lineno">2 </span>hello world
+<span class="lineno">3 </span>My <span class="nb">test</span> assert passed.
+<span class="lineno">4 </span>$&gt;
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+              <ul>
+<li>Piped hello_world's stdout into our test program.</li>
+<li>Test program reads stdout and checks for: "hello world".</li>
+<li>Does an assert.</li>
+<li>Says assert passsed.</li>
+<li>Lets look at our test code...</li>
+</ul>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="unittest_helloworld_python.md">unittest_helloworld_python.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              5/22
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: unittest_helloworld_python.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code slide-6">
+          <div class="inner">
+            
+            <header><h1>test_hello_world.py</h1></header>
+            
+            
+            <section><p>Our test code:</p>
+<div class="highlight"><pre><span class="lineno">1 </span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="lineno">2 </span>
+<span class="lineno">3 </span><span class="nb">input</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="lineno">4 </span><span class="k">assert</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="n">t</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">)</span>
+<span class="lineno">5 </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;My test assert passed.&#39;</span><span class="p">)</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+              <ul>
+<li>Read stdin.</li>
+<li>Assert "hello world" is in input.</li>
+<li>Print message if no exception.</li>
+<li>That was easy. Lets look at Pro's/Con's...</li>
+</ul>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="unittest_helloworld_python.md">unittest_helloworld_python.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              6/22
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: unittest_helloworld_python.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-7">
+          <div class="inner">
+            
+            <header><h1>Pro's</h1></header>
+            
+            
+            <section><ul>
+<li>No code changes to main program.</li>
+<li>Done our test.</li>
+<li>Could've got someone else to write test.</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+              <ul>
+<li>Could throw over wall to qa.</li>
+</ul>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="unittest_helloworld_python.md">unittest_helloworld_python.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              7/22
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: unittest_helloworld_python.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-8">
+          <div class="inner">
+            
+            <header><h1>Con's</h1></header>
+            
+            
+            <section><ul>
+<li>We used <code>in</code> instead of <code>==</code>.</li>
+<li>Using <code>==</code> would have lead to line ending gotcha's.</li>
+<li>"Black box" test.</li>
+<li>Crap... this is an integration test! <em>Lets try again...</em></li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+              <ul>
+<li>Line endings: Linux: \n. Windows: CRLF.</li>
+<li>"Black Box": miss lots of internal testing.</li>
+<li>Not a unittest (main aim).</li>
+<li>Round 2...</li>
+</ul>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="unittest_helloworld_python.md">unittest_helloworld_python.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              8/22
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: unittest_helloworld_python.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-9">
+          <div class="inner">
+            
+            
+            <section><p>Round 2</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="unittest_helloworld_python.md">unittest_helloworld_python.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              9/22
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: unittest_helloworld_python.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code slide-10">
+          <div class="inner">
+            
+            <header><h1>hello_world.py</h1></header>
+            
+            
+            <section><p>Let's write hello world:</p>
+<div class="highlight"><pre><span class="lineno">1 </span><span class="ch">#! /usr/bin/env python3</span>
+<span class="lineno">2 </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+              <ul>
+<li>Boom! We've got our hello_world code.</li>
+<li>Lets try again.</li>
+<li>As a dev I don't want to change my program for testing.</li>
+<li>What can I do?</li>
+<li>Boom! Monkey Patching...</li>
+</ul>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="unittest_helloworld_python.md">unittest_helloworld_python.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              10/22
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: unittest_helloworld_python.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code slide-11">
+          <div class="inner">
+            
+            <header><h1>Monkey Patching print() Test</h1></header>
+            
+            
+            <section><p>YES!!</p>
+<div class="highlight"><pre><span class="lineno">1 </span><span class="c1"># TODO: Monkey Patched test.</span>
+<span class="lineno">2 </span>
+<span class="lineno">3 </span><span class="err">!</span><span class="n">bash</span>
+<span class="lineno">4 </span><span class="err">$</span><span class="o">&gt;</span> <span class="n">python3</span> <span class="n">monkey_patched_print_test_hello_world</span><span class="o">.</span><span class="n">py</span>
+<span class="lineno">5 </span><span class="n">hello</span> <span class="n">world</span>
+<span class="lineno">6 </span><span class="n">My</span> <span class="n">test</span> <span class="k">assert</span> <span class="n">passed</span><span class="o">.</span>
+<span class="lineno">7 </span><span class="err">$</span><span class="o">&gt;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+              <ul>
+<li>Boom! Look at my Mad Dev skills!</li>
+<li>Balls so big I can space-hopper around the office on them!</li>
+<li>I monkey patched print()!</li>
+<li>No code changes to my program.</li>
+<li>I'm a super dev!</li>
+<li>Pro's...</li>
+</ul>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="unittest_helloworld_python.md">unittest_helloworld_python.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              11/22
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: unittest_helloworld_python.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-12">
+          <div class="inner">
+            
+            <header><h1>Pro's</h1></header>
+            
+            
+            <section><ul>
+<li>Mad "Space-Hopper Balls" Dev skills!</li>
+<li>Monkey Patching is awesome!</li>
+<li>It's a unittest!</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+              <ul>
+<li>Awesome.</li>
+<li>Are there any Con's?...</li>
+</ul>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="unittest_helloworld_python.md">unittest_helloworld_python.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              12/22
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: unittest_helloworld_python.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-13">
+          <div class="inner">
+            
+            <header><h1>Con's</h1></header>
+            
+            
+            <section><ul>
+<li>You Monkey Patched <code>print()</code>!!</li>
+<li>Do we need to test Third Party code?</li>
+<li>There's got to be an easier way??</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+              <ul>
+<li>If you're Monkey Patching, are you sure you <strong>really</strong> need to Monkey Patch?</li>
+<li>Monkey Patching is mind bendingly hard at the best of times.</li>
+<li>Is there an easier way?</li>
+<li>Lets Revise the problem...</li>
+</ul>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="unittest_helloworld_python.md">unittest_helloworld_python.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              13/22
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: unittest_helloworld_python.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-14">
+          <div class="inner">
+            
+            <header><h1>Hello World Criteria</h1></header>
+            
+            
+            <section><p>Print <code>"hello world"</code> to stdout.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+              <ul>
+<li>So what's our Test critera?...</li>
+</ul>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="unittest_helloworld_python.md">unittest_helloworld_python.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              14/22
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: unittest_helloworld_python.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-15">
+          <div class="inner">
+            
+            <header><h1>Test Criteria</h1></header>
+            
+            
+            <section><p>Test that <code>"hello world"</code> <strong>is</strong> printed to stdout.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+              <ul>
+<li>Do we need to test the <code>print()</code> function?</li>
+<li>Print is manually tested by <strong>every</strong> single python user!</li>
+<li>Assume that <code>print()</code> has "good enough" automated testing.</li>
+<li>So lets reword that statement a bit...</li>
+</ul>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="unittest_helloworld_python.md">unittest_helloworld_python.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              15/22
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: unittest_helloworld_python.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-16">
+          <div class="inner">
+            
+            <header><h1>Test Criteria</h1></header>
+            
+            
+            <section><p>Test that <code>"hello world"</code> <strong>will</strong> be printed to stdout.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+              <ul>
+<li>Subtle but important change.</li>
+<li>Trust <code>print()</code> will do it's job if fed appropriate arguments.</li>
+<li>Test what we are concerned with.</li>
+<li>Leave testing of items outside our concern to their maintainer/producer.</li>
+<li>Lets take another stab...</li>
+<li>Round 3...</li>
+</ul>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="unittest_helloworld_python.md">unittest_helloworld_python.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              16/22
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: unittest_helloworld_python.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-17">
+          <div class="inner">
+            
+            
+            <section><p>Round 3</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="unittest_helloworld_python.md">unittest_helloworld_python.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              17/22
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: unittest_helloworld_python.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code slide-18">
+          <div class="inner">
+            
+            <header><h1>hello_world.py</h1></header>
+            
+            
+            <section><p>Let's write hello world:</p>
+<div class="highlight"><pre><span class="lineno">1 </span><span class="ch">#! /usr/bin/env python3</span>
+<span class="lineno">2 </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+              <ul>
+<li>Boom! We've got our hello_world code. Again</li>
+<li>Third time lucky.</li>
+<li>As a dev I need to modify my code to be testable.</li>
+<li>Lets make lest effort change.</li>
+<li>Global variable...</li>
+</ul>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="unittest_helloworld_python.md">unittest_helloworld_python.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              18/22
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: unittest_helloworld_python.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code slide-19">
+          <div class="inner">
+            
+            <header><h1>unittest_hello_world.py</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="lineno">1 </span><span class="kn">from</span> <span class="nn">testable_hello_world</span> <span class="kn">import</span> <span class="n">hello_world</span>
+<span class="lineno">2 </span><span class="k">assert</span><span class="p">(</span><span class="n">hello_world</span><span class="o">.</span><span class="n">HELLO_WORLD</span> <span class="o">==</span> <span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+<span class="lineno">3 </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;My test assert passed.&#39;</span><span class="p">)</span>
+<span class="lineno">4 </span>
+<span class="lineno">5 </span><span class="err">!</span><span class="n">bash</span>
+<span class="lineno">6 </span><span class="err">$</span><span class="o">&gt;</span> <span class="n">python3</span> <span class="n">unittest_hello_world</span><span class="o">.</span><span class="n">py</span>
+<span class="lineno">7 </span><span class="n">hello</span> <span class="n">world</span>
+<span class="lineno">8 </span><span class="n">My</span> <span class="n">test</span> <span class="k">assert</span> <span class="n">passed</span><span class="o">.</span>
+<span class="lineno">9 </span><span class="err">$</span><span class="o">&gt;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+              <ul>
+<li>That wasn't a horrific change to our hello_world program.</li>
+<li>Now test that our global variable == <code>"hello world"</code>.</li>
+<li>Pro's...</li>
+</ul>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="unittest_helloworld_python.md">unittest_helloworld_python.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              19/22
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: unittest_helloworld_python.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-20">
+          <div class="inner">
+            
+            <header><h1>Pro's</h1></header>
+            
+            
+            <section><ul>
+<li>"White Box" testing.</li>
+<li>Only testing changes in our "Realm".</li>
+<li>Mitigates issues with distance from "Black Box" Input/Output testing.</li>
+<li>Allows refactor with test safety net.</li>
+<li>Can be part of CI that runs on Save/Commit/Remote-sharing.</li>
+<li>Trust Third Party code/tests/API.</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+              <ul>
+<li>"White Box" == unittest.</li>
+<li>Testing isolated components.</li>
+<li>Mitigates issues with integration tests.</li>
+<li>Con's...</li>
+</ul>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="unittest_helloworld_python.md">unittest_helloworld_python.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              20/22
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: unittest_helloworld_python.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-21">
+          <div class="inner">
+            
+            <header><h1>Con's</h1></header>
+            
+            
+            <section><ul>
+<li>Trust Third Party code/tests/API.</li>
+<li>Had to change Program to make it unittest-able.</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+              <ul>
+<li>Potential for unittests passing but solution level issues.</li>
+<li>Need mix of unit/integration tests (better unittest heavy).</li>
+<li>Making code testable after design is costly.</li>
+<li>Thanks...</li>
+</ul>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="unittest_helloworld_python.md">unittest_helloworld_python.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              21/22
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: unittest_helloworld_python.md -->
+      <div class="slide-wrapper">
+        <div class="slide slide-22">
+          <div class="inner">
+            
+            <header><h1>Thank You</h1></header>
+            
+            
+            <section><ul>
+<li>Presentation: https://github.com/jackson15j/presentations</li>
+<li>Code: https://github.com/jackson15j/unittest_helloworld</li>
+<li>Presentation renderer: https://github.com/adamzap/landslide</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="unittest_helloworld_python.md">unittest_helloworld_python.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              22/22
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <div id="toc" class="sidebar hidden">
+    <h2>Table of Contents</h2>
+    <table>
+      <caption>Table of Contents</caption>
+      
+      <tr id="toc-row-1">
+        <th><a href="#slide1">Unittest Hello_world</a></th>
+        <td><a href="#slide1">1</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-2">
+        <th><a href="#slide2">-</a></th>
+        <td><a href="#slide2">2</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-3">
+        <th><a href="#slide3">hello_world.py</a></th>
+        <td><a href="#slide3">3</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-4">
+        <th><a href="#slide4">hello_world.py</a></th>
+        <td><a href="#slide4">4</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-5">
+        <th><a href="#slide5">How to Test?</a></th>
+        <td><a href="#slide5">5</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-6">
+        <th><a href="#slide6">test_hello_world.py</a></th>
+        <td><a href="#slide6">6</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-7">
+        <th><a href="#slide7">Pro's</a></th>
+        <td><a href="#slide7">7</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-8">
+        <th><a href="#slide8">Con's</a></th>
+        <td><a href="#slide8">8</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-9">
+        <th><a href="#slide9">-</a></th>
+        <td><a href="#slide9">9</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-10">
+        <th><a href="#slide10">hello_world.py</a></th>
+        <td><a href="#slide10">10</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-11">
+        <th><a href="#slide11">Monkey Patching print() Test</a></th>
+        <td><a href="#slide11">11</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-12">
+        <th><a href="#slide12">Pro's</a></th>
+        <td><a href="#slide12">12</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-13">
+        <th><a href="#slide13">Con's</a></th>
+        <td><a href="#slide13">13</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-14">
+        <th><a href="#slide14">Hello World Criteria</a></th>
+        <td><a href="#slide14">14</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-15">
+        <th><a href="#slide15">Test Criteria</a></th>
+        <td><a href="#slide15">15</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-16">
+        <th><a href="#slide16">Test Criteria</a></th>
+        <td><a href="#slide16">16</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-17">
+        <th><a href="#slide17">-</a></th>
+        <td><a href="#slide17">17</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-18">
+        <th><a href="#slide18">hello_world.py</a></th>
+        <td><a href="#slide18">18</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-19">
+        <th><a href="#slide19">unittest_hello_world.py</a></th>
+        <td><a href="#slide19">19</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-20">
+        <th><a href="#slide20">Pro's</a></th>
+        <td><a href="#slide20">20</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-21">
+        <th><a href="#slide21">Con's</a></th>
+        <td><a href="#slide21">21</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-22">
+        <th><a href="#slide22">Thank You</a></th>
+        <td><a href="#slide22">22</a></td>
+      </tr>
+      
+      
+    </table>
+  </div>
+  
+  <div id="help" class="sidebar hidden">
+    <h2>Help</h2>
+    <table>
+      <caption>Help</caption>
+      <tr>
+        <th>Table of Contents</th>
+        <td>t</td>
+      </tr>
+      <tr>
+        <th>Exposé</th>
+        <td>ESC</td>
+      </tr>
+      <tr>
+        <th>Full screen slides</th>
+        <td>e</td>
+      </tr>
+      <tr>
+        <th>Presenter View</th>
+        <td>p</td>
+      </tr>
+      <tr>
+        <th>Source Files</th>
+        <td>s</td>
+      </tr>
+      <tr>
+        <th>Slide Numbers</th>
+        <td>n</td>
+      </tr>
+      <tr>
+        <th>Toggle screen blanking</th>
+        <td>b</td>
+      </tr>
+      <tr>
+        <th>Show/hide slide context</th>
+        <td>c</td>
+      </tr>
+      <tr>
+        <th>Notes</th>
+        <td>2</td>
+      </tr>
+      <tr>
+        <th>Help</th>
+        <td>h</td>
+      </tr>
+    </table>
+  </div>
+  <script>main()</script>
+</body>
+</html>
