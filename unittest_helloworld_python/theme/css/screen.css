@@ -235,7 +235,7 @@ div.slide div.presenter_notes, div.slides div.presenter_notes {
 /* Slide styles */
 
 div.slide p {
-  font-size: 20px;
+  font-size: 30px;  /* default 20px */
 }
 
 .slide.far-past {
@@ -342,7 +342,7 @@ pre, code, tt {
 }
 
 pre, .gist .gist-file .gist-data {
-  font-size: 18px;
+  font-size: 28px; /* 18px */
   max-height: 485px;
   padding-top: 0.25em !important;
   padding-right: 0.5em !important;
@@ -367,12 +367,12 @@ blockquote {
   border-left: solid 8px #778;
   padding: .1ex 1ex;
   font-style: italic;
-  font-size: 20px;
+  font-size: 30px; /* 20px */
 }
 
 li {
   padding: 10px 0;
-  font-size: 20px;
+  font-size: 30px; /* 20px */
 }
 
 li pre { margin-left: 0em; }
