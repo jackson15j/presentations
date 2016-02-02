@@ -341,6 +341,6 @@ Presenter Notes
 Thank You
 =========
 
-* Presentation:
+* Presentation: https://github.com/jackson15j/presentations
 * Code: https://github.com/jackson15j/unittest_helloworld
 * Presentation renderer: https://github.com/adamzap/landslide
