@@ -87,7 +87,7 @@ Our test code:
     assert("hello world"t in input)
     print('My test assert passed.')
 
-Presenter Notse
+Presenter Notes
 ===============
 
 * Read stdin.
