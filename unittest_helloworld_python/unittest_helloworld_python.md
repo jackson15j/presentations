@@ -153,19 +153,24 @@ Presenter Notes
 
 ---
 
-Monkey Patching print() Test
-============================
+Monkey Patching sys.stdout Test
+===============================
 
 YES!!
 
     !python
-    # TODO: Monkey Patched test.
+    import sys
+    import io
 
-    !bash
-    $> python3 monkey_patched_print_test_hello_world.py
-    hello world
-    My test assert passed.
-    $>
+    default_stdout = sys.stdout
+    stdout_variable = io.StringIO()
+    sys.stdout = stdout_variable
+    import hello_world
+    sys.stdout = default_stdout
+
+    assert("hello world" in stdout_variable.getvalue())
+    print('My test assert passed.')
+
 
 Presenter Notes
 ===============
@@ -175,6 +180,24 @@ Presenter Notes
 * I monkey patched print()!
 * No code changes to my program.
 * I'm a super dev!
+* Test output...
+
+---
+
+Monkey Patching sys.stdout Test
+===============================
+
+Test Bash Output:
+
+    !bash
+    $> python3 monkey_patched_test_hello_world.py
+    hello world
+    My test assert passed.
+    $>
+
+Presenter Notes
+===============
+
 * Pro's...
 
 ---
@@ -197,7 +220,9 @@ Presenter Notes
 Con's
 =====
 
-* You Monkey Patched `print()`!!
+* You Monkey Patched `sys.stdout`!!
+* We've swallowed all sys.stdout calls until we un-Monkey Patch.
+* Cyclic death if you try this in a Python Interpreter.
 * Do we need to test Third Party code?
 * There's got to be an easier way??
 
@@ -282,10 +307,14 @@ Presenter Notes
 unittest_hello_world.py
 =======================
 
+Our test code:
+
     !python
     from testable_hello_world import hello_world
     assert(hello_world.HELLO_WORLD == "hello world")
     print('My test assert passed.')
+
+Test output:
 
     !bash
     $> python3 unittest_hello_world.py

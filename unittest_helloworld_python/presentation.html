@@ -28,14 +28,14 @@
     <title>Unittest Hello_world</title>
     <!-- Styles -->
     
-    <link rel="stylesheet" media="print" href="theme/css/print.css">
-    <link rel="stylesheet" media="screen, projection" href="theme/css/screen.css">
+    <link rel="stylesheet" media="print" href="theme\css\print.css">
+    <link rel="stylesheet" media="screen, projection" href="theme\css\screen.css">
     
     
     <!-- /Styles -->
     <!-- Javascripts -->
     
-    <script type="text/javascript" src="theme/js/slides.js"></script>
+    <script type="text/javascript" src="theme\js\slides.js"></script>
     
     
     
@@ -73,7 +73,7 @@
             </aside>
             
             <aside class="page_number">
-              1/22
+              1/23
             </aside>
           </footer>
         </div>
@@ -101,7 +101,7 @@
             </aside>
             
             <aside class="page_number">
-              2/22
+              2/23
             </aside>
           </footer>
         </div>
@@ -141,7 +141,7 @@
             </aside>
             
             <aside class="page_number">
-              3/22
+              3/23
             </aside>
           </footer>
         </div>
@@ -188,7 +188,7 @@
             </aside>
             
             <aside class="page_number">
-              4/22
+              4/23
             </aside>
           </footer>
         </div>
@@ -232,7 +232,7 @@
             </aside>
             
             <aside class="page_number">
-              5/22
+              5/23
             </aside>
           </footer>
         </div>
@@ -276,7 +276,7 @@
             </aside>
             
             <aside class="page_number">
-              6/22
+              6/23
             </aside>
           </footer>
         </div>
@@ -314,7 +314,7 @@
             </aside>
             
             <aside class="page_number">
-              7/22
+              7/23
             </aside>
           </footer>
         </div>
@@ -356,7 +356,7 @@
             </aside>
             
             <aside class="page_number">
-              8/22
+              8/23
             </aside>
           </footer>
         </div>
@@ -384,7 +384,7 @@
             </aside>
             
             <aside class="page_number">
-              9/22
+              9/23
             </aside>
           </footer>
         </div>
@@ -426,7 +426,7 @@
             </aside>
             
             <aside class="page_number">
-              10/22
+              10/23
             </aside>
           </footer>
         </div>
@@ -437,17 +437,21 @@
         <div class="slide has_code slide-11">
           <div class="inner">
             
-            <header><h1>Monkey Patching print() Test</h1></header>
+            <header><h1>Monkey Patching sys.stdout Test</h1></header>
             
             
             <section><p>YES!!</p>
-<div class="highlight"><pre><span class="lineno">1 </span><span class="c1"># TODO: Monkey Patched test.</span>
-<span class="lineno">2 </span>
-<span class="lineno">3 </span><span class="err">!</span><span class="n">bash</span>
-<span class="lineno">4 </span><span class="err">$</span><span class="o">&gt;</span> <span class="n">python3</span> <span class="n">monkey_patched_print_test_hello_world</span><span class="o">.</span><span class="n">py</span>
-<span class="lineno">5 </span><span class="n">hello</span> <span class="n">world</span>
-<span class="lineno">6 </span><span class="n">My</span> <span class="n">test</span> <span class="k">assert</span> <span class="n">passed</span><span class="o">.</span>
-<span class="lineno">7 </span><span class="err">$</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span class="lineno"> 1 </span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="lineno"> 2 </span><span class="kn">import</span> <span class="nn">io</span>
+<span class="lineno"> 3 </span>
+<span class="lineno"> 4 </span><span class="n">default_stdout</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span>
+<span class="lineno"> 5 </span><span class="n">stdout_variable</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
+<span class="lineno"> 6 </span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">stdout_variable</span>
+<span class="lineno"> 7 </span><span class="kn">import</span> <span class="nn">hello_world</span>
+<span class="lineno"> 8 </span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">default_stdout</span>
+<span class="lineno"> 9 </span>
+<span class="lineno">10 </span><span class="k">assert</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span> <span class="ow">in</span> <span class="n">stdout_variable</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>
+<span class="lineno">11 </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;My test assert passed.&#39;</span><span class="p">)</span>
 </pre></div>
 </section>
             
@@ -462,6 +466,46 @@
 <li>I monkey patched print()!</li>
 <li>No code changes to my program.</li>
 <li>I'm a super dev!</li>
+<li>Test output...</li>
+</ul>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="unittest_helloworld_python.md">unittest_helloworld_python.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              11/23
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: unittest_helloworld_python.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code slide-12">
+          <div class="inner">
+            
+            <header><h1>Monkey Patching sys.stdout Test</h1></header>
+            
+            
+            <section><p>Test Bash Output:</p>
+<div class="highlight"><pre><span class="lineno">1 </span>$&gt; python3 monkey_patched_test_hello_world.py
+<span class="lineno">2 </span>hello world
+<span class="lineno">3 </span>My <span class="nb">test</span> assert passed.
+<span class="lineno">4 </span>$&gt;
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+              <ul>
 <li>Pro's...</li>
 </ul>
             
@@ -474,7 +518,7 @@
             </aside>
             
             <aside class="page_number">
-              11/22
+              12/23
             </aside>
           </footer>
         </div>
@@ -482,7 +526,7 @@
       
       <!-- slide source: unittest_helloworld_python.md -->
       <div class="slide-wrapper">
-        <div class="slide slide-12">
+        <div class="slide slide-13">
           <div class="inner">
             
             <header><h1>Pro's</h1></header>
@@ -513,7 +557,7 @@
             </aside>
             
             <aside class="page_number">
-              12/22
+              13/23
             </aside>
           </footer>
         </div>
@@ -521,14 +565,16 @@
       
       <!-- slide source: unittest_helloworld_python.md -->
       <div class="slide-wrapper">
-        <div class="slide slide-13">
+        <div class="slide slide-14">
           <div class="inner">
             
             <header><h1>Con's</h1></header>
             
             
             <section><ul>
-<li>You Monkey Patched <code>print()</code>!!</li>
+<li>You Monkey Patched <code>sys.stdout</code>!!</li>
+<li>We've swallowed all sys.stdout calls until we un-Monkey Patch.</li>
+<li>Cyclic death if you try this in a Python Interpreter.</li>
 <li>Do we need to test Third Party code?</li>
 <li>There's got to be an easier way??</li>
 </ul></section>
@@ -554,7 +600,7 @@
             </aside>
             
             <aside class="page_number">
-              13/22
+              14/23
             </aside>
           </footer>
         </div>
@@ -562,7 +608,7 @@
       
       <!-- slide source: unittest_helloworld_python.md -->
       <div class="slide-wrapper">
-        <div class="slide slide-14">
+        <div class="slide slide-15">
           <div class="inner">
             
             <header><h1>Hello World Criteria</h1></header>
@@ -588,7 +634,7 @@
             </aside>
             
             <aside class="page_number">
-              14/22
+              15/23
             </aside>
           </footer>
         </div>
@@ -596,7 +642,7 @@
       
       <!-- slide source: unittest_helloworld_python.md -->
       <div class="slide-wrapper">
-        <div class="slide slide-15">
+        <div class="slide slide-16">
           <div class="inner">
             
             <header><h1>Test Criteria</h1></header>
@@ -625,7 +671,7 @@
             </aside>
             
             <aside class="page_number">
-              15/22
+              16/23
             </aside>
           </footer>
         </div>
@@ -633,7 +679,7 @@
       
       <!-- slide source: unittest_helloworld_python.md -->
       <div class="slide-wrapper">
-        <div class="slide slide-16">
+        <div class="slide slide-17">
           <div class="inner">
             
             <header><h1>Test Criteria</h1></header>
@@ -664,7 +710,7 @@
             </aside>
             
             <aside class="page_number">
-              16/22
+              17/23
             </aside>
           </footer>
         </div>
@@ -672,7 +718,7 @@
       
       <!-- slide source: unittest_helloworld_python.md -->
       <div class="slide-wrapper">
-        <div class="slide slide-17">
+        <div class="slide slide-18">
           <div class="inner">
             
             
@@ -692,7 +738,7 @@
             </aside>
             
             <aside class="page_number">
-              17/22
+              18/23
             </aside>
           </footer>
         </div>
@@ -700,7 +746,7 @@
       
       <!-- slide source: unittest_helloworld_python.md -->
       <div class="slide-wrapper">
-        <div class="slide has_code slide-18">
+        <div class="slide has_code slide-19">
           <div class="inner">
             
             <header><h1>hello_world.py</h1></header>
@@ -734,7 +780,7 @@
             </aside>
             
             <aside class="page_number">
-              18/22
+              19/23
             </aside>
           </footer>
         </div>
@@ -742,21 +788,23 @@
       
       <!-- slide source: unittest_helloworld_python.md -->
       <div class="slide-wrapper">
-        <div class="slide has_code slide-19">
+        <div class="slide has_code slide-20">
           <div class="inner">
             
             <header><h1>unittest_hello_world.py</h1></header>
             
             
-            <section><div class="highlight"><pre><span class="lineno">1 </span><span class="kn">from</span> <span class="nn">testable_hello_world</span> <span class="kn">import</span> <span class="n">hello_world</span>
+            <section><p>Our test code:</p>
+<div class="highlight"><pre><span class="lineno">1 </span><span class="kn">from</span> <span class="nn">testable_hello_world</span> <span class="kn">import</span> <span class="n">hello_world</span>
 <span class="lineno">2 </span><span class="k">assert</span><span class="p">(</span><span class="n">hello_world</span><span class="o">.</span><span class="n">HELLO_WORLD</span> <span class="o">==</span> <span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
 <span class="lineno">3 </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;My test assert passed.&#39;</span><span class="p">)</span>
-<span class="lineno">4 </span>
-<span class="lineno">5 </span><span class="err">!</span><span class="n">bash</span>
-<span class="lineno">6 </span><span class="err">$</span><span class="o">&gt;</span> <span class="n">python3</span> <span class="n">unittest_hello_world</span><span class="o">.</span><span class="n">py</span>
-<span class="lineno">7 </span><span class="n">hello</span> <span class="n">world</span>
-<span class="lineno">8 </span><span class="n">My</span> <span class="n">test</span> <span class="k">assert</span> <span class="n">passed</span><span class="o">.</span>
-<span class="lineno">9 </span><span class="err">$</span><span class="o">&gt;</span>
+</pre></div>
+
+<p>Test output:</p>
+<div class="highlight"><pre><span class="lineno">1 </span>$&gt; python3 unittest_hello_world.py
+<span class="lineno">2 </span>hello world
+<span class="lineno">3 </span>My <span class="nb">test</span> assert passed.
+<span class="lineno">4 </span>$&gt;
 </pre></div>
 </section>
             
@@ -780,7 +828,7 @@
             </aside>
             
             <aside class="page_number">
-              19/22
+              20/23
             </aside>
           </footer>
         </div>
@@ -788,7 +836,7 @@
       
       <!-- slide source: unittest_helloworld_python.md -->
       <div class="slide-wrapper">
-        <div class="slide slide-20">
+        <div class="slide slide-21">
           <div class="inner">
             
             <header><h1>Pro's</h1></header>
@@ -824,7 +872,7 @@
             </aside>
             
             <aside class="page_number">
-              20/22
+              21/23
             </aside>
           </footer>
         </div>
@@ -832,7 +880,7 @@
       
       <!-- slide source: unittest_helloworld_python.md -->
       <div class="slide-wrapper">
-        <div class="slide slide-21">
+        <div class="slide slide-22">
           <div class="inner">
             
             <header><h1>Con's</h1></header>
@@ -864,7 +912,7 @@
             </aside>
             
             <aside class="page_number">
-              21/22
+              22/23
             </aside>
           </footer>
         </div>
@@ -872,7 +920,7 @@
       
       <!-- slide source: unittest_helloworld_python.md -->
       <div class="slide-wrapper">
-        <div class="slide slide-22">
+        <div class="slide slide-23">
           <div class="inner">
             
             <header><h1>Thank You</h1></header>
@@ -898,7 +946,7 @@
             </aside>
             
             <aside class="page_number">
-              22/22
+              23/23
             </aside>
           </footer>
         </div>
@@ -973,31 +1021,31 @@
       
       
       <tr id="toc-row-11">
-        <th><a href="#slide11">Monkey Patching print() Test</a></th>
+        <th><a href="#slide11">Monkey Patching sys.stdout Test</a></th>
         <td><a href="#slide11">11</a></td>
       </tr>
       
       
       <tr id="toc-row-12">
-        <th><a href="#slide12">Pro's</a></th>
+        <th><a href="#slide12">Monkey Patching sys.stdout Test</a></th>
         <td><a href="#slide12">12</a></td>
       </tr>
       
       
       <tr id="toc-row-13">
-        <th><a href="#slide13">Con's</a></th>
+        <th><a href="#slide13">Pro's</a></th>
         <td><a href="#slide13">13</a></td>
       </tr>
       
       
       <tr id="toc-row-14">
-        <th><a href="#slide14">Hello World Criteria</a></th>
+        <th><a href="#slide14">Con's</a></th>
         <td><a href="#slide14">14</a></td>
       </tr>
       
       
       <tr id="toc-row-15">
-        <th><a href="#slide15">Test Criteria</a></th>
+        <th><a href="#slide15">Hello World Criteria</a></th>
         <td><a href="#slide15">15</a></td>
       </tr>
       
@@ -1009,38 +1057,44 @@
       
       
       <tr id="toc-row-17">
-        <th><a href="#slide17">-</a></th>
+        <th><a href="#slide17">Test Criteria</a></th>
         <td><a href="#slide17">17</a></td>
       </tr>
       
       
       <tr id="toc-row-18">
-        <th><a href="#slide18">hello_world.py</a></th>
+        <th><a href="#slide18">-</a></th>
         <td><a href="#slide18">18</a></td>
       </tr>
       
       
       <tr id="toc-row-19">
-        <th><a href="#slide19">unittest_hello_world.py</a></th>
+        <th><a href="#slide19">hello_world.py</a></th>
         <td><a href="#slide19">19</a></td>
       </tr>
       
       
       <tr id="toc-row-20">
-        <th><a href="#slide20">Pro's</a></th>
+        <th><a href="#slide20">unittest_hello_world.py</a></th>
         <td><a href="#slide20">20</a></td>
       </tr>
       
       
       <tr id="toc-row-21">
-        <th><a href="#slide21">Con's</a></th>
+        <th><a href="#slide21">Pro's</a></th>
         <td><a href="#slide21">21</a></td>
       </tr>
       
       
       <tr id="toc-row-22">
-        <th><a href="#slide22">Thank You</a></th>
+        <th><a href="#slide22">Con's</a></th>
         <td><a href="#slide22">22</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-23">
+        <th><a href="#slide23">Thank You</a></th>
+        <td><a href="#slide23">23</a></td>
       </tr>
       
       
