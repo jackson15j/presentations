@@ -276,6 +276,7 @@ Presenter Notes
 * Test what we are concerned with.
 * Leave testing of items outside our concern to their maintainer/producer.
 * Lets take another stab...
+* Global variable...
 * Round 3...
 
 ---
@@ -291,7 +292,8 @@ Let's write hello world:
 
     !python
     #! /usr/bin/env python3
-    print("hello world")
+    HELLO_WORLD = "hello world"
+    print(HELLO_WORLD)
 
 Presenter Notes
 ===============
@@ -300,7 +302,7 @@ Presenter Notes
 * Third time lucky.
 * As a dev I need to modify my code to be testable.
 * Lets make lest effort change.
-* Global variable...
+* Test Code...
 
 ---
 
